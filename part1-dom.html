@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vanilla DOM Manipulation Exercises</title>
+    <style media="screen">
+        :root {
+         --color1 : #ee6055;
+         --color2 : #60d394;
+         --color3 : #aaf683;
+         --color4 : #ffd97d;
+         --color5 : #ff9b85;
+
+         --darkcolor1 : black;
+         --darkcolor2 : darkslategray;
+         --darkcolor3 : darkgreen;
+         --darkcolor4 : darkgoldenrod;
+         --darkcolor5 : darkred;
+         --darkcolor6 : darkmagenta;
+        }
+
+        label {
+            display : block;
+            font-weight : bold;
+        }
+
+        #controls {
+            background : #eee;
+            margin : 2em;
+            padding : 2em;
+        }
+
+        #controls fieldset {
+            background : white;
+            margin : 1em;
+            padding : 1em;
+        }
+
+        h1 {
+            text-align : center;
+        }
+
+        #p1 {
+            color : slategray;
+            font-size : 3rem;
+        }
+
+        output {
+            border: 1px solid black;
+        }
+
+        .fancy {
+            animation-name: backgroundColorPalette;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .shmancy {
+            animation-name: jumping;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes jumping {
+            0% {
+                transform: translateY(0px);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes backgroundColorPalette {
+            0% {background: var(--color1);}
+            25% {background: #60d394;}
+            50% {background: #aaf683;}
+            75% {background: #ffd97d;}
+            100% {background: #ff9b85;}
+        }
+    </style>
+</head>
+<body>
+<!-- start of HTML demo -->
+<h1>Vanilla DOM Manipulation</h1>
+<p id="p1">This is a <em>test</em> of the DOM</p>
+
+<section id="controls">
+<h2>Demos</h2>
+<form>
+    <fieldset>
+        <legend>Traversal</legend>
+        <!-- Q1a) -->
+        <label for="walkBtn">Basic Traversal</label>
+        <input type="button" id="walkBtn" value="Walk">
+        <!-- Q1b) -->
+        <label for="advWalkBtn">Advanced Traversal</label>
+        <input type="button" id="advWalkBtn" value="Walk">
+
+        <textarea name="Traversal Output" id="traversalOutput" cols="30" rows="30"></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>Modify</legend>
+        <label for="modifyBtn">Simple Modification</label>
+        <input type="button" id="modifyBtn" value="Modify">
+        <!-- Q2 -->
+        <label for="modifyBtn">Advanced Modification</label>
+        <input type="button" id="advModifyBtn" value="Modify">
+    </fieldset>
+
+    <fieldset>
+        <legend>Add</legend>
+
+        <!-- Q3 -->
+        <label for="elementSelector">Element Type</label>
+        <select name="elementSelector" id="elementSelector">
+            <option value="New Text Node">Text Node</option>
+            <option value="New Comment">Comment</option>
+            <option value="New Element">Element</option>
+        </select>
+
+        <label for="elementContent"></label>
+        <input type="text" name="elementContent" id="elementContent" value="New Text Node">
+
+        <label for="addBtn">Basic Addition</label>
+        <input type="button" id="addBtn" value="Add">
+    </fieldset>
+
+    <fieldset>
+        <legend>Remove</legend>
+        <label for="removeBtn">Simple Delete</label>
+        <input type="button" id="removeBtn" value="Remove">
+
+        <!-- Q4a) -->
+        <label for="removeBtn">Safe Delete</label>
+        <input type="button" id="safeRemoveBtn" value="Remove">
+        <!-- Q4b) -->
+        <label for="removeBtn">Delete By Selector</label>
+        <input type="text" name="CssSelector" id="CssSelector" placeholder="CSS Selector">
+        <input type="button" id="selectorRemoveBtn" value="Remove">
+    </fieldset>
+
+    <fieldset>
+        <legend>Clone</legend>
+        <!-- Q5a) -->
+        <label for="cloneBtn">Basic Clone</label>
+        <input type="button" name="cloneBtn" id="cloneBtn" value="Clone">
+        <!-- Q5b) -->
+        <label for="cloneBtn">Advanced Clone</label>
+        <input type="button" name="advCloneBtn" id="advCloneBtn" value="Clone">
+        <!--
+          Q5a) Add a button "Basic Clone" that clones the p tag and adds it to the DOM.  You can add it to the same area you added new content.  Be cautious with your cloning to modify attributes
+
+          Q5b) Add template at the bottom of the page with some HTML markup representing a "card" that would have and title, image, a short text paragraph and link.  This template should be hidden from view using the <template> tag.  Add a button "Advanced Clone" that clones the template and adds it to the DOM.  Generate some boilerplate text to put in the title and text put add in some random value or number, so you can tell each new card that you are adding.  Find a few images at Unsplash or other sites to use as the card image to make it interesting.  The card design is up to you, and you are more than welcome to get inspiration from online for design.  These cards might be what you could use for a portfolio or gallery of some sort so have fun as if you do this correctly, you can use for your portfolio site eventually.  Make sure you are using semantic HTML and simple CSS to style the cards.  You should use CSS variables.
+
+        -->
+
+        
+    </fieldset>
+
+</form>
+</section>
+
+<hr>
+<h2>Look out below these will get deleted if you press the buttons above!</h2>
+<p>I am scared of being deleted!</p>
+<p>Me too. Oh noes, here comes the <code>removeChild()</code> method, it's going to delete us!</p>
+
+<output></output>
+
+<template>
+    <figure>
+        <h2>Card</h2>
+        <picture>
+            <source type="image/webp" srcset="">
+            <img src="" alt="" height="200px">
+        </picture>
+        <figcaption>Some paragraph text</figcaption>
+    </figure>
+</template>
+
+<!-- put all your new code in this dom.js file -->
+<script src="dom.js"></script>
+</body>
+</html>
